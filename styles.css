@@ -1,0 +1,49 @@
+body {
+  height: 100vh;
+  width: auto;
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.card {
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  margin: 0 0 1rem 0;
+}
+
+.form-input-value {
+  display: block;
+}
+
+input[type='text'],
+input[type='email'] {
+  margin: 1rem 0 1rem 0;
+  padding: 10px;
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.btn {
+  padding: 10px;
+  border: 0;
+  border-radius: 20px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  cursor: pointer;
+}
