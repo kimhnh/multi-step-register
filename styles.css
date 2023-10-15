@@ -1,55 +1,60 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
   height: 100vh;
+  margin: 0;
   width: auto;
   display: grid;
-  place-items: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
-  margin: 0 auto;
+  max-width: 500px;
 }
 
 .card {
   border: 1px solid black;
-  border-radius: 20px;
+  border-radius: 12px;
+  padding: 35px; /* helps keep h2 and button same vertical height */
+  width: 460px;
+  height: 400px;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
-  /* align-items: center;
-  justify-content: center; */
+  align-items: center;
+  justify-content: space-between; /* helps keep h2 and button same vertical height */
+  text-align: center; /* centers button */
 }
 
-h2 {
-  margin: 0 0 3rem 0;
-}
-
-.form-input-value {
-  display: block;
+.label-register {
+  display: flex;
+  justify-content: flex-start; /* left justify */
 }
 
 input[type='text'],
 input[type='email'] {
   margin: 1rem 0 2rem 0;
   padding: 10px;
-  height: 20px;
+  height: 50px;
   border: 1px solid black;
   border-radius: 5px;
-  width: 300px;
+  width: 390px; /* 460 (card width) - 70 (card padding from both sides) = 390px */
+}
+
+#stepTwo label span {
+  padding: 3px 0;
 }
 
 .btn {
   padding: 10px;
+  margin: 0 auto;
   border: 0;
   border-radius: 20px;
   width: 150px;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
   cursor: pointer;
 }
 
@@ -61,13 +66,13 @@ input[type='email'] {
 }
 
 #step-text {
-  margin-right: 20px;
+  margin: 0 20px 0 0;
 }
 
 .step-circle {
-  width: 16px;
-  height: 16px;
-  background: red;
+  width: 12px;
+  height: 12px;
+  background: rgb(0, 0, 0);
   border-radius: 8px;
   margin: 0 5px 0 5px;
 }
