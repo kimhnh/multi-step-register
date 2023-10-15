@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   height: 100vh;
   width: auto;
@@ -15,12 +20,12 @@ body {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
 }
 
-h1 {
-  margin: 0 0 1rem 0;
+h2 {
+  margin: 0 0 3rem 0;
 }
 
 .form-input-value {
@@ -29,7 +34,7 @@ h1 {
 
 input[type='text'],
 input[type='email'] {
-  margin: 1rem 0 1rem 0;
+  margin: 1rem 0 2rem 0;
   padding: 10px;
   height: 20px;
   border: 1px solid black;
@@ -46,4 +51,23 @@ input[type='email'] {
   justify-content: center;
   margin: 0 auto;
   cursor: pointer;
+}
+
+.step-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 0 0;
+}
+
+#step-text {
+  margin-right: 20px;
+}
+
+.step-circle {
+  width: 16px;
+  height: 16px;
+  background: red;
+  border-radius: 8px;
+  margin: 0 5px 0 5px;
 }

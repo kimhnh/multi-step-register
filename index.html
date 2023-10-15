@@ -9,8 +9,10 @@
   <body>
     <main>
       <div class="container">
-        <div class="card">
-            <h2>Register</h2>
+
+        <!-- Step One: Name/Email -->
+        <div class="card" id="stepOne">
+            <h2 class="heading">Register</h2>
             <form action="">
                 <div class="form-input">
                     <label for="name">Name</label>
@@ -22,6 +24,52 @@
                 </div>
                 <button class="btn">Continue</button>
             </form>
+        </div>
+
+        <!-- Step Two: Select Interest -->
+        <!-- <div class="card" id="stepTwo">
+          <h2 class="heading">Which topics are you interested in?</h2>
+          <form action="">
+              <div class="form-input">
+                <input type="checkbox" id="software-dev" name="software-dev" value="software-dev">
+                  <label for="software-dev">Software Development</label>
+              </div>
+              <div class="form-input">
+                <input type="checkbox" id="ux" name="ux" value="ux">
+                <label for="ux">User Experience</label>
+              </div>
+              <div class="form-input">
+                <input type="checkbox" id="graphic" name="graphic" value="graphic">
+                <label for="graphic">Graphic Design</label>
+              </div>
+              <button class="btn">Continue</button>
+          </form>
+        </div> -->
+
+        <!-- Step Three: Summary -->
+        <!-- <div class="card" id="stepThree">
+          <h2 class="heading">Summary</h2>
+          <div class="summary">
+            <p>Name: <span id="summaryName">your name here</span></p>
+            <p>Email: <span id="summaryEmail">your email here</span></p>
+            <p>Topics:</p>
+            <ul>
+              <li>your interests here</li>
+            </ul>
+          </div>
+          <button class="btn">Confirm</button>
+        </div> -->
+
+        <!-- Step Four: Confirmation -->
+        <!-- <div class="card" id="stepFinal">
+          <h2 class="heading">Successfully registered.</h2>
+        </div> -->
+
+        <div class="step-label">
+          <p id="step-text">Step 1 of 3</p>
+          <div class="step-circle"></div>
+          <div class="step-circle"></div>
+          <div class="step-circle"></div>
         </div>
       </div>
   </body>
