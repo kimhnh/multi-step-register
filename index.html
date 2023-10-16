@@ -1,78 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles.css" />
-    <title>Multi-Step Register</title>
-  </head>
-  <body>
-    <main>
-      <div class="container">
 
-        <!-- Step One: Name&Email -->
-        <div class="card" id="cardOne">
-          <h2 class="heading">Register</h2>
-          <form action="">
-              <div class="form-input">
-                  <label class="label-register" for="name">Name</label>
-                  <input class="form-input-value" type="text" name="name" id="name" placeholder="Enter your name" required />
-              </div>
-              <div class="form-input">
-                  <label class="label-register" for="email">Email</label>
-                  <input class="form-input-value" type="email" name="email" id="email" placeholder="hi@mail.com" required />
-              </div>
-              <button class="btn" id="btnStepOne">Continue</button>
-          </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Multi-Step Register</title>
+</head>
+
+<body>
+  <main>
+    <div class="container">
+
+      <!-- Step One: Name&Email -->
+      <div class="card" id="cardOne">
+        <h2 class="heading">Register</h2>
+        <form action="">
+          <div class="form-input">
+            <label class="label-register" for="name">Name</label>
+            <input class="form-input-value" type="text" name="name" id="name" placeholder="Enter your name" required />
+          </div>
+          <div class="form-input">
+            <label class="label-register" for="email">Email</label>
+            <input class="form-input-value" type="email" name="email" id="email" placeholder="hi@mail.com" required />
+          </div>
+          <button class="btn" id="btnStepOne">Continue</button>
+        </form>
       </div>
 
       <!-- Step Two: Select Interest -->
-        <div class="card" id="cardTwo" style="display: none;">
-          <h2 class="heading">Which topics are you interested in?</h2>
-          <form action="">
-              <div class="form-input">
-                <input type="checkbox" id="software-dev" name="software-dev" value="software-dev">
-                  <label for="software-dev"><span>Software Development</span></label>
-              </div>
-              <div class="form-input">
-                <input type="checkbox" id="ux" name="ux" value="ux">
-                <label for="ux"><span>User Experience</span></label>
-              </div>
-              <div class="form-input">
-                <input type="checkbox" id="graphic" name="graphic" value="graphic">
-                <label for="graphic"><span>Graphic Design</span></label>
-              </div>
-              <button class="btn" id="btnStepTwo">Continue</button>
-          </form>
-        </div>
-
-        <!-- Step Three: Summary -->
-        <div class="card" id="cardThree" style="display: none;">
-          <h2 class="heading">Summary</h2>
-          <div class="summary">
-            <p>Name: <span id="nameSubmit"></span></p>
-            <p>Email: <span id="emailSubmit"></span></p>
-            <p>Topics:</p>
-            <ul>
-              <li>your interests here</li>
-            </ul>
+      <div class="card hidden" id="cardTwo">
+        <h2 class="heading">Which topics are you interested in?</h2>
+        <form action="">
+          <div class="form-input">
+            <input class="checkbox" type="checkbox" id="software-dev" name="software-dev" value="Software Development">
+            <label for="software-dev"><span>Software Development</span></label>
           </div>
-          <button class="btn" id="btnStepThree">Continue</button>
-        </div>
-
-        <!-- Step Four: Confirmation -->
-        <div class="card" id="cardFour" style="display: none;">
-          <h2 class="heading">Successfully registered.</h2>
-        </div>
-
-
-        <div class="step-label">
-          <p id="step-text">Step 1 of 3</p>
-          <div class="step-circle"></div>
-          <div class="step-circle"></div>
-          <div class="step-circle"></div>
-        </div>
+          <div class="form-input">
+            <input class="checkbox" type="checkbox" id="ux" name="ux" value="User Experience">
+            <label for="ux"><span>User Experience</span></label>
+          </div>
+          <div class="form-input">
+            <input class="checkbox" type="checkbox" id="graphic" name="graphic" value="Graphic Design">
+            <label for="graphic"><span>Graphic Design</span></label>
+          </div>
+          <button class="btn" id="btnStepTwo">Continue</button>
+        </form>
       </div>
-  </body>
-  <script src="app.js"></script>
+
+      <!-- Step Three: Summary -->
+      <div class="card hidden" id="cardThree">
+        <h2 class="heading">Summary</h2>
+        <div class="summary">
+          <p>Name: <span id="nameSubmit"></span></p>
+          <p>Email: <span id="emailSubmit"></span></p>
+          <p>Topics:</p>
+          <ul id="interestList"></ul>
+        </div>
+        <button class="btn" id="btnStepThree">Continue</button>
+      </div>
+
+      <!-- Step Four: Confirmation -->
+      <div class="card hidden" id="cardFinal">
+        <h2 class="heading">Successfully registered.</h2>
+      </div>
+
+      <!-- Registration Step Counter -->
+      <div class="step-label">
+        <p id="step-text">Step 1 of 3</p>
+        <div class="step-circle"></div>
+        <div class="step-circle"></div>
+        <div class="step-circle"></div>
+      </div>
+
+      <!-- Flash Message -->
+      <div class="flash-message hidden">
+        <p id="flash-message">This is where the flash-message will be.
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+      </div>
+
+    </div>
+</body>
+<script src="app.js"></script>
+
 </html>
