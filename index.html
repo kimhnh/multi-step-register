@@ -5,14 +5,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/dcece32f35.js" crossorigin="anonymous"></script>
   <title>Multi-Step Register</title>
 </head>
 
 <body>
   <main>
     <div class="container">
-
       <!-- Step One: Name&Email -->
+      <!--############## REMOVE HIDDEN ############## -->
       <div class="card" id="cardOne">
         <h2 class="heading">Register</h2>
         <form action="">
@@ -29,23 +33,27 @@
       </div>
 
       <!-- Step Two: Select Interest -->
+      <!--############## ADD BACK HIDDEN ############## -->
       <div class="card hidden" id="cardTwo">
         <h2 class="heading">Which topics are you interested in?</h2>
-        <form action="">
-          <div class="form-input">
-            <input class="checkbox" type="checkbox" id="software-dev" name="software-dev" value="Software Development">
-            <label for="software-dev"><span>Software Development</span></label>
-          </div>
-          <div class="form-input">
-            <input class="checkbox" type="checkbox" id="ux" name="ux" value="User Experience">
-            <label for="ux"><span>User Experience</span></label>
-          </div>
-          <div class="form-input">
-            <input class="checkbox" type="checkbox" id="graphic" name="graphic" value="Graphic Design">
-            <label for="graphic"><span>Graphic Design</span></label>
-          </div>
-          <button class="btn" id="btnStepTwo">Continue</button>
-        </form>
+        <div class="checkbox-container">
+          <form action="">
+            <div class="form-input">
+              <input class="checkbox" type="checkbox" id="software-dev" name="software-dev"
+                value="Software Development">
+              <label for="software-dev"><span>Software Development</span></label>
+            </div>
+            <div class="form-input">
+              <input class="checkbox" type="checkbox" id="ux" name="ux" value="User Experience">
+              <label for="ux"><span>User Experience</span></label>
+            </div>
+            <div class="form-input">
+              <input class="checkbox" type="checkbox" id="graphic" name="graphic" value="Graphic Design">
+              <label for="graphic"><span>Graphic Design</span></label>
+            </div>
+            <button class="btn" id="btnStepTwo">Continue</button>
+          </form>
+        </div>
       </div>
 
       <!-- Step Three: Summary -->
@@ -67,20 +75,18 @@
 
       <!-- Registration Step Counter -->
       <div class="step-label">
-        <p id="step-text">Step 1 of 3</p>
-        <div class="step-circle"></div>
-        <div class="step-circle"></div>
-        <div class="step-circle"></div>
+        <p id="step-text">Step <span id="stepCount">1</span> of 3</p>
+        <div class="step-circle active" id="circleOne"></div>
+        <div class="step-circle" id="circleTwo"></div>
+        <div class="step-circle" id="circleThree"></div>
       </div>
 
       <!-- Flash Message -->
       <div class="flash-message hidden">
-        <p id="flash-message">This is where the flash-message will be.
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+        <p id="flash-message">Select atleast one topic</p>
       </div>
-
     </div>
+    <script src="app.js"></script>
 </body>
-<script src="app.js"></script>
 
 </html>

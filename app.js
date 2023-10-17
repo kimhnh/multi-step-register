@@ -11,68 +11,69 @@ const cardFinal = document.getElementById('cardFinal');
 const flashMessage = document.querySelector('.flash-message');
 
 // elements
-const heading = document.querySelector('.header');
 const name = document.getElementById('name');
 const email = document.getElementById('email');
 const nameSubmit = document.getElementById('nameSubmit');
 const emailSubmit = document.getElementById('emailSubmit');
+const circleOne = document.getElementById('circleOne');
+const circleTwo = document.getElementById('circleTwo');
+const circleThree = document.getElementById('circleThree');
+const stepCount = document.getElementById('stepCount');
 
 ///////////////////////////////////////////////////////////////
+// TO DO LIST:
 
-// todo list:
-// 1. add logic to step 2: if any checkbox is checked ... else flash error message
-// 2. logic for step label (progress indicator)
-// 3. disable query to show in url
-// 4. refine CSS (this should be last)
-// 5. email input (right now you can bypass it without even having @) -- come back to this later
-
+// 1. disable query to show in url
+// 2. refine CSS (this should be last)
+// 3. email input
+// 4. add refresh button?
 ///////////////////////////////////////////////////////////////
 
 // Step 1: Name&Email
 btnStepOne.addEventListener('click', function (e) {
   e.preventDefault();
   if (name.value && email.value) {
-    cardOne.classList.add('hidden');
-    cardTwo.classList.remove('hidden');
+    nextStep(cardOne, cardTwo, 'completed', 'active', 'step-circle', 2);
     nameSubmit.textContent = name.value; // must have code here to dynamically change in step 3
     emailSubmit.textContent = email.value;
   }
 });
 
-// Step 2: Interests - require css update (flash message if nothing is checked)
+// Step 2: Interests
 btnStepTwo.addEventListener('click', function (e) {
   e.preventDefault();
-  cardTwo.classList.add('hidden');
-  cardThree.classList.remove('hidden');
   let checkedValues = document.querySelectorAll('[type="checkbox"]:checked');
   let printValues = Array.from(checkedValues, (el) => el.value);
 
-  // dynamically create lis by looping through an array
-  for (let i = 0; i < printValues.length; i++) {
-    let list = document.createElement('li');
-    list.textContent = printValues[i];
-    document.getElementById('interestList').appendChild(list);
+  if (printValues.length > 0) {
+    nextStep(cardTwo, cardThree, 'completed', 'completed', 'active', 3);
+
+    // dynamically create lis by looping through an array
+    for (let i = 0; i < printValues.length; i++) {
+      let list = document.createElement('li');
+      list.textContent = printValues[i];
+      document.getElementById('interestList').appendChild(list);
+      flashMessage.classList.add('hidden');
+    }
+  } else {
+    flashMessage.classList.remove('hidden');
   }
 });
 
 // Step 3: Summary
 btnStepThree.addEventListener('click', function (e) {
   e.preventDefault();
-  cardThree.classList.add('hidden');
-  cardFinal.classList.remove('hidden');
+  nextStep(cardThree, cardFinal, 'completed', 'completed', 'completed', 3);
 });
 
-// Logic to add checked values into an array (for loop)
-//inside event listener
-// displayChecked();
-// console.log(checkedValues);
+// Functions
+function nextStep(previousCard, activeCard, statusA, statusB, statusC, count) {
+  previousCard.classList.add('hidden');
+  activeCard.classList.remove('hidden');
+  circleOne.classList.add(statusA);
+  circleTwo.classList.add(statusB);
+  circleThree.classList.add(statusC);
+  stepCount.textContent = count;
+}
 
-// let checkedValues = [];
-
-// function displayChecked() {
-//   checkedValues = [];
-//   let checked = document.querySelectorAll('[type="checkbox"]:checked');
-//   for (let i = 0; i < checked.length; i++) {
-//     checkedValues.push(checked[i].value);
-//   }
-// }
+//location.reload();
