@@ -16,10 +16,9 @@
   <main>
     <div class="container">
       <!-- Step One: Name&Email -->
-      <!--############## REMOVE HIDDEN ############## -->
       <div class="card" id="cardOne">
         <h2 class="heading">Register</h2>
-        <form action="">
+        <form action="" method="POST">
           <div class="form-input">
             <label class="label-register" for="name">Name</label>
             <input class="form-input-value" type="text" name="name" id="name" placeholder="Enter your name" required />
@@ -33,27 +32,23 @@
       </div>
 
       <!-- Step Two: Select Interest -->
-      <!--############## ADD BACK HIDDEN ############## -->
       <div class="card hidden" id="cardTwo">
         <h2 class="heading">Which topics are you interested in?</h2>
-        <div class="checkbox-container">
-          <form action="">
-            <div class="form-input">
-              <input class="checkbox" type="checkbox" id="software-dev" name="software-dev"
-                value="Software Development">
-              <label for="software-dev"><span>Software Development</span></label>
-            </div>
-            <div class="form-input">
-              <input class="checkbox" type="checkbox" id="ux" name="ux" value="User Experience">
-              <label for="ux"><span>User Experience</span></label>
-            </div>
-            <div class="form-input">
-              <input class="checkbox" type="checkbox" id="graphic" name="graphic" value="Graphic Design">
-              <label for="graphic"><span>Graphic Design</span></label>
-            </div>
-            <button class="btn" id="btnStepTwo">Continue</button>
-          </form>
-        </div>
+        <form action="">
+          <div class="form-input">
+            <input class="checkbox" type="checkbox" id="software-dev" name="software-dev" value="Software Development">
+            <label for="software-dev"><span>Software Development</span></label>
+          </div>
+          <div class="form-input">
+            <input class="checkbox" type="checkbox" id="ux" name="ux" value="User Experience">
+            <label for="ux"><span>User Experience</span></label>
+          </div>
+          <div class="form-input">
+            <input class="checkbox" type="checkbox" id="graphic" name="graphic" value="Graphic Design">
+            <label for="graphic"><span>Graphic Design</span></label>
+          </div>
+          <button class="btn" id="btnStepTwo">Continue</button>
+        </form>
       </div>
 
       <!-- Step Three: Summary -->
@@ -70,7 +65,8 @@
 
       <!-- Step Four: Confirmation -->
       <div class="card hidden" id="cardFinal">
-        <h2 class="heading">Successfully registered.</h2>
+        <h2 class="heading">Successfully registered!</h2>
+        <i class="fa-solid fa-thumbs-up fa-2xl"></i>
       </div>
 
       <!-- Registration Step Counter -->
@@ -83,7 +79,7 @@
 
       <!-- Flash Message -->
       <div class="flash-message hidden">
-        <p id="flash-message">Select atleast one topic</p>
+        <p id="flash-message">Select atleast one topic.</p>
       </div>
     </div>
     <script src="app.js"></script>
