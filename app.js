@@ -26,7 +26,6 @@ const stepCount = document.getElementById('stepCount');
 // 1. disable query to show in url
 // 2. refine CSS (this should be last)
 // 3. email input
-// 4. add refresh button?
 ///////////////////////////////////////////////////////////////
 
 // Step 1: Name&Email
