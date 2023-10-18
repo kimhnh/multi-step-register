@@ -44,16 +44,15 @@ body {
   color: inherit;
   padding: 12px;
   margin: 0 auto;
-  border: 0;
+  border: 1px solid #e0ebf554;
   border-radius: 18px;
   width: 150px;
   cursor: pointer;
-  transition: background-color 0.5s;
 }
 
 .btn:hover {
   background-color: #3f454a;
-  transition: background-color 0.5s;
+  border: 1px solid #ffffffb8;
 }
 
 /* Step Counter*/
@@ -128,7 +127,6 @@ input[type='email'] {
   border: 1px solid #e0ebf554;
   border-radius: 12px;
   width: 390px; /* 460 (container width) - 70 (card padding from both sides) = 390 */
-  transition: 0.5s;
   outline: none; /*stops from having default white outline when focused */
 }
 
@@ -137,6 +135,7 @@ input[type='email']:focus {
   border: 1px solid white;
 }
 
+/* Step Two */
 #cardTwo input[type='checkbox'] + label {
   width: 390px;
   padding: 20px;
@@ -151,7 +150,6 @@ input[type='email']:focus {
   justify-content: space-between;
 }
 
-/* Step Two */
 #cardTwo input[type='checkbox']:checked + label {
   background-color: #9696966a;
   color: white;
@@ -188,7 +186,6 @@ li {
 }
 
 /* Step Four */
-
 #cardFinal {
   align-items: center;
   justify-content: center;
@@ -197,4 +194,18 @@ li {
 #cardFinal h2,
 i {
   padding: 20px 0;
+}
+
+@media (max-width: 450px) {
+  .card {
+    max-width: 350px;
+    position: relative;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  #cardTwo input[type='checkbox'] + label,
+  .summary {
+    width: 300px;
+  }
 }
