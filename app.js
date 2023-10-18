@@ -1,16 +1,16 @@
-// buttons
+// Buttons
 const btnStepOne = document.getElementById('btnStepOne');
 const btnStepTwo = document.getElementById('btnStepTwo');
 const btnStepThree = document.getElementById('btnStepThree');
 
-// card divs
+// Divs
 const cardOne = document.getElementById('cardOne');
 const cardTwo = document.getElementById('cardTwo');
 const cardThree = document.getElementById('cardThree');
 const cardFinal = document.getElementById('cardFinal');
 const flashMessage = document.querySelector('.flash-message');
 
-// elements
+// Elements
 const name = document.getElementById('name');
 const email = document.getElementById('email');
 const nameSubmit = document.getElementById('nameSubmit');
@@ -19,14 +19,6 @@ const circleOne = document.getElementById('circleOne');
 const circleTwo = document.getElementById('circleTwo');
 const circleThree = document.getElementById('circleThree');
 const stepCount = document.getElementById('stepCount');
-
-///////////////////////////////////////////////////////////////
-// TO DO LIST:
-
-// 1. disable query to show in url
-// 2. refine CSS (this should be last)
-// 3. email input
-///////////////////////////////////////////////////////////////
 
 // Step 1: Name&Email
 btnStepOne.addEventListener('click', function (e) {
@@ -65,7 +57,7 @@ btnStepThree.addEventListener('click', function (e) {
   nextStep(cardThree, cardFinal, 'completed', 'completed', 'completed', 3);
 });
 
-// Functions
+// Function
 function nextStep(previousCard, activeCard, statusA, statusB, statusC, count) {
   previousCard.classList.add('hidden');
   activeCard.classList.remove('hidden');
@@ -74,5 +66,3 @@ function nextStep(previousCard, activeCard, statusA, statusB, statusC, count) {
   circleThree.classList.add(statusC);
   stepCount.textContent = count;
 }
-
-//location.reload();
