@@ -1,68 +1,120 @@
-// Buttons
-const btnStepOne = document.getElementById('btnStepOne');
-const btnStepTwo = document.getElementById('btnStepTwo');
-const btnStepThree = document.getElementById('btnStepThree');
+'use strict';
 
-// Divs
-const cardOne = document.getElementById('cardOne');
-const cardTwo = document.getElementById('cardTwo');
-const cardThree = document.getElementById('cardThree');
-const cardFinal = document.getElementById('cardFinal');
-const flashMessage = document.querySelector('.flash-message');
+// Buttons
+const btnOne = document.querySelector('.btn--one');
+const btnTwo = document.querySelector('.btn--two');
+const btnThree = document.querySelector('.btn--three');
 
 // Elements
-const name = document.getElementById('name');
+const cardContainer = document.querySelector('.container');
+const flashMessage = document.querySelector('.flash');
+const list = document.querySelector('.list');
+const steps = document.querySelectorAll('.card');
+const stepsContainer = document.querySelector('.step');
+const stepText = document.querySelector('.step__text');
+
+// User Input Elements
+const inputName = document.getElementById('name');
 const email = document.getElementById('email');
-const nameSubmit = document.getElementById('nameSubmit');
-const emailSubmit = document.getElementById('emailSubmit');
-const circleOne = document.getElementById('circleOne');
-const circleTwo = document.getElementById('circleTwo');
-const circleThree = document.getElementById('circleThree');
-const stepCount = document.getElementById('stepCount');
+const nameSubmit = document.getElementById('name__submit');
+const emailSubmit = document.getElementById('email__submit');
 
-// Step 1: Name&Email
-btnStepOne.addEventListener('click', function (e) {
-  e.preventDefault();
-  if (name.value && email.value) {
-    nextStep(cardOne, cardTwo, 'completed', 'active', 'step-circle', 2);
-    nameSubmit.textContent = name.value; // must have code here to dynamically change in step 3
-    emailSubmit.textContent = email.value;
+// Step Value
+let curStep = 0;
+const maxStep = steps.length - 1;
+
+// Functions
+function createCircleSteps() {
+  steps.forEach((_, i) => {
+    if (i < steps.length - 1)
+      stepsContainer.insertAdjacentHTML(
+        'beforeend',
+        `<div class="step--circle" data-step="${i}"></div>`
+      );
+  });
+}
+
+function activateCircle(step) {
+  const current = document.querySelector(`.step--circle[data-step="${step}"]`);
+  const circles = document.querySelectorAll('.step--circle');
+
+  if (curStep === 0) current.classList.add('active');
+
+  if (curStep > 0 && curStep < 3) {
+    current.previousElementSibling.classList.remove('active');
+    current.previousElementSibling.classList.add('completed');
+    current.classList.add('active');
   }
-});
 
-// Step 2: Interests
-btnStepTwo.addEventListener('click', function (e) {
-  e.preventDefault();
-  let checkedValues = document.querySelectorAll('[type="checkbox"]:checked');
-  let printValues = Array.from(checkedValues, (el) => el.value);
+  if (curStep === 3) {
+    circles.forEach((el) => {
+      el.classList.remove('active');
+      el.classList.add('completed');
+    });
+  }
+}
 
-  if (printValues.length > 0) {
-    nextStep(cardTwo, cardThree, 'completed', 'completed', 'active', 3);
+function displayNextCard(current) {
+  // 1. select parent (div) of e.target
+  const parentEl = current.closest('.card');
+
+  // 2. add/remove 'hidden' class
+  parentEl.classList.add('hidden');
+  parentEl.nextElementSibling.classList.remove('hidden');
+
+  // 3. circle
+  curStep++;
+  activateCircle(curStep);
+
+  //4. step text
+  stepText.textContent = `Step ${curStep === maxStep ? maxStep : curStep + 1} of ${maxStep}`;
+}
+
+function init() {
+  createCircleSteps();
+  activateCircle(curStep);
+  stepText.textContent = `Step ${curStep + 1} of ${maxStep}`;
+
+  // initial condition: all but first child add 'hidden' class
+  steps.forEach((el) => el.classList.add('hidden'));
+  cardContainer.firstElementChild.classList.remove('hidden');
+}
+init();
+
+// Event Delegation
+cardContainer.addEventListener('click', function (e) {
+  // Step 1: Name & Email
+  if (e.target === btnOne) {
+    e.preventDefault();
+    if (inputName.value && email.value) {
+      nameSubmit.textContent = inputName.value; // must have code here to dynamically change in step 3
+      emailSubmit.textContent = email.value;
+
+      displayNextCard(e.target);
+    }
+  }
+
+  // Step 2: Interests
+  if (e.target === btnTwo) {
+    e.preventDefault();
+    const checkedValues = document.querySelectorAll('[type="checkbox"]:checked');
+    const printValues = Array.from(checkedValues, (el) => el.value);
 
     // dynamically create lis by looping through an array
-    for (let i = 0; i < printValues.length; i++) {
-      let list = document.createElement('li');
-      list.textContent = printValues[i];
-      document.getElementById('interestList').appendChild(list);
+    if (printValues.length > 0) {
+      printValues.forEach((el) => {
+        list.insertAdjacentHTML('beforeend', `<li>${el}</li>`);
+      });
       flashMessage.classList.add('hidden');
+      displayNextCard(e.target);
+    } else {
+      flashMessage.classList.remove('hidden');
     }
-  } else {
-    flashMessage.classList.remove('hidden');
+  }
+
+  // Step 3: Summary
+  if (e.target === btnThree) {
+    e.preventDefault();
+    displayNextCard(e.target);
   }
 });
-
-// Step 3: Summary
-btnStepThree.addEventListener('click', function (e) {
-  e.preventDefault();
-  nextStep(cardThree, cardFinal, 'completed', 'completed', 'completed', 3);
-});
-
-// Function
-function nextStep(previousCard, activeCard, statusA, statusB, statusC, count) {
-  previousCard.classList.add('hidden');
-  activeCard.classList.remove('hidden');
-  circleOne.classList.add(statusA);
-  circleTwo.classList.add(statusB);
-  circleThree.classList.add(statusC);
-  stepCount.textContent = count;
-}
