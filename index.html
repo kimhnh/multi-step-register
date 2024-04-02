@@ -10,79 +10,77 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/dcece32f35.js" crossorigin="anonymous"></script>
   <title>Multi-Step Register</title>
+  <script defer src="./app.js"></script>
 </head>
 
 <body>
   <main>
     <div class="container">
       <!-- Step One: Name&Email -->
-      <div class="card" id="cardOne">
+      <div class="card" id="card--one">
         <h2 class="heading">Register</h2>
         <form action="" method="POST">
-          <div class="form-input">
-            <label class="label-register" for="name">Name</label>
-            <input class="form-input-value" type="text" name="name" id="name" placeholder="Enter your name" required />
+          <div class="form">
+            <label class="register" for="name">Name</label>
+            <input class="form__input" type="text" name="name" id="name" placeholder="Enter your name" required />
           </div>
-          <div class="form-input">
-            <label class="label-register" for="email">Email</label>
-            <input class="form-input-value" type="email" name="email" id="email" placeholder="hi@mail.com" required />
+          <div class="form">
+            <label class="register" for="email">Email</label>
+            <input class="form__input" type="email" name="email" id="email" placeholder="hi@mail.com" required />
           </div>
-          <button class="btn" id="btnStepOne">Continue</button>
+          <button class="btn btn--one">Continue</button>
         </form>
       </div>
 
       <!-- Step Two: Select Interest -->
-      <div class="card hidden" id="cardTwo">
+      <div class="card" id="card--two">
         <h2 class="heading">Which topics are you interested in?</h2>
         <form action="">
-          <div class="form-input">
+          <div class="form">
             <input class="checkbox" type="checkbox" id="software-dev" name="software-dev" value="Software Development">
             <label for="software-dev"><span>Software Development</span></label>
           </div>
-          <div class="form-input">
+          <div class="form">
             <input class="checkbox" type="checkbox" id="ux" name="ux" value="User Experience">
             <label for="ux"><span>User Experience</span></label>
           </div>
-          <div class="form-input">
+          <div class="form">
             <input class="checkbox" type="checkbox" id="graphic" name="graphic" value="Graphic Design">
             <label for="graphic"><span>Graphic Design</span></label>
           </div>
-          <button class="btn" id="btnStepTwo">Continue</button>
+          <button class="btn btn--two">Continue</button>
         </form>
       </div>
 
       <!-- Step Three: Summary -->
-      <div class="card hidden" id="cardThree">
+      <div class="card" id="card-three">
         <h2 class="heading">Summary</h2>
         <div class="summary">
-          <p>Name: <span id="nameSubmit"></span></p>
-          <p>Email: <span id="emailSubmit"></span></p>
+          <p>Name: <span id="name__submit"></span></p>
+          <p>Email: <span id="email__submit"></span></p>
           <p>Topics:</p>
-          <ul id="interestList"></ul>
+          <ul class="list"></ul>
         </div>
-        <button class="btn" id="btnStepThree">Continue</button>
+        <button class="btn btn--three">Continue</button>
       </div>
 
       <!-- Step Four: Confirmation -->
-      <div class="card hidden" id="cardFinal">
+      <div class="card" id="card--final">
         <h2 class="heading">Successfully registered!</h2>
         <i class="fa-solid fa-thumbs-up fa-2xl"></i>
       </div>
 
       <!-- Registration Step Counter -->
-      <div class="step-label">
-        <p id="step-text">Step <span id="stepCount">1</span> of 3</p>
-        <div class="step-circle active" id="circleOne"></div>
-        <div class="step-circle" id="circleTwo"></div>
-        <div class="step-circle" id="circleThree"></div>
+      <div class="step">
+        <p class="step__text"></p>
       </div>
 
       <!-- Flash Message -->
-      <div class="flash-message hidden">
-        <p id="flash-message">Select atleast one topic.</p>
+      <div class="flash hidden">
+        <p id="flash__message">Select atleast one topic.</p>
       </div>
     </div>
-    <script src="./app.js"></script>
+   
 </body>
 
 </html>

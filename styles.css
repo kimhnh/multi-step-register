@@ -56,7 +56,7 @@ body {
 }
 
 /* Step Counter*/
-.step-label {
+.step {
   color: white;
   display: flex;
   align-items: center;
@@ -64,11 +64,11 @@ body {
   margin: 1rem 0 0 0;
 }
 
-#step-text {
+#step__text {
   margin: 0 20px 0 0;
 }
 
-.step-circle {
+.step--circle {
   background: white;
   border: 1px solid #e0ebf554;
   border-radius: 8px;
@@ -93,7 +93,7 @@ body {
 }
 
 /* Flash Message */
-.flash-message {
+.flash {
   background-color: #dc4343c9;
   color: white;
   border-radius: 10px;
@@ -111,8 +111,8 @@ body {
 }
 
 /* Step One */
-.form-input-value,
-.label-register {
+.form__input,
+.register {
   display: flex;
   justify-content: flex-start; /* left justify */
 }
@@ -136,7 +136,7 @@ input[type='email']:focus {
 }
 
 /* Step Two */
-#cardTwo input[type='checkbox'] + label {
+#card--two input[type='checkbox'] + label {
   width: 390px;
   padding: 20px;
   margin: 1rem 0;
@@ -150,17 +150,17 @@ input[type='email']:focus {
   justify-content: space-between;
 }
 
-#cardTwo input[type='checkbox']:checked + label {
+#card--two input[type='checkbox']:checked + label {
   background-color: #9696966a;
   color: white;
 }
 
 /* hide checkbox */
-#cardTwo input[type='checkbox'] {
+#card--two input[type='checkbox'] {
   display: none;
 }
 
-#stepTwo label span {
+.btn--two label span {
   padding: 3px 0;
 }
 
@@ -186,12 +186,12 @@ li {
 }
 
 /* Step Four */
-#cardFinal {
+#card--final {
   align-items: center;
   justify-content: center;
 }
 
-#cardFinal h2,
+#card--final h2,
 i {
   padding: 20px 0;
 }
@@ -204,7 +204,7 @@ i {
 
   input[type='text'],
   input[type='email'],
-  #cardTwo input[type='checkbox'] + label,
+  #card--two input[type='checkbox'] + label,
   .summary {
     width: 300px;
   }
